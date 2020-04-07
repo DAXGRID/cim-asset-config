@@ -1,4 +1,172 @@
 <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:cims="http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#" xmlns:uml="http://langdale.com.au/2005/UML#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:base="http://iec.ch/TC57/test">
+	<rdf:Description rdf:about="#ACLineSegment">
+		<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+		<rdfs:label>#ACLineSegment</rdfs:label>
+		<rdfs:comment>A wire or combination of wires, with consistent electrical characteristics, building a single electrical system, used to carry alternating current between points in the power system.
+For symmetrical, transposed three phase lines, it is sufficient to use attributes of the line segment, which describe impedances and admittances for the entire length of the segment.  Additionally impedances can be computed by using length and associated per length impedances.
+The BaseVoltage at the two ends of ACLineSegments in a Line shall have the same BaseVoltage.nominalVoltage. However, boundary lines may have slightly different BaseVoltage.nominalVoltages and variation is allowed. Larger voltage difference in general requires use of an equivalent branch.</rdfs:comment>
+		<cims:belongsToCategory rdf:resource="#Package_Wires"/>
+		<rdfs:subClassOf rdf:resource="#ConductingEquipment"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="#ACLineSegment.ACLineSegmentPhases">
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+		<rdfs:label>ACLineSegmentPhases</rdfs:label>
+		<rdfs:comment>The line segment phases which belong to the line segment.</rdfs:comment>
+		<rdfs:domain rdf:resource="#ACLineSegment"/>
+		<rdfs:range rdf:resource="#ACLineSegmentPhase"/>
+		<cims:multiplicity rdf:resource="http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#M:0..n"/>
+		<cims:inverseRoleName rdf:resource="#ACLineSegmentPhase.ACLineSegment"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="#ACLineSegment.Clamp">
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+		<rdfs:label>Clamp</rdfs:label>
+		<rdfs:comment>The clamps connected to the line segment.</rdfs:comment>
+		<rdfs:domain rdf:resource="#ACLineSegment"/>
+		<rdfs:range rdf:resource="#Clamp"/>
+		<cims:multiplicity rdf:resource="http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#M:0..n"/>
+		<cims:inverseRoleName rdf:resource="#Clamp.ACLineSegment"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="#ACLineSegment.Cut">
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+		<rdfs:label>Cut</rdfs:label>
+		<rdfs:comment>Cuts applied to the line segment.</rdfs:comment>
+		<rdfs:domain rdf:resource="#ACLineSegment"/>
+		<rdfs:range rdf:resource="#Cut"/>
+		<cims:multiplicity rdf:resource="http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#M:0..n"/>
+		<cims:inverseRoleName rdf:resource="#Cut.ACLineSegment"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="#ACLineSegment.LineFaults">
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+		<rdfs:label>LineFaults</rdfs:label>
+		<rdfs:comment>The line faults of the line segment.</rdfs:comment>
+		<rdfs:domain rdf:resource="#ACLineSegment"/>
+		<rdfs:range rdf:resource="#LineFault"/>
+		<cims:multiplicity rdf:resource="http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#M:0..n"/>
+		<cims:inverseRoleName rdf:resource="#LineFault.ACLineSegment"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="#ACLineSegment.LineGroundingAction">
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+		<rdfs:label>LineGroundingAction</rdfs:label>
+		<rdfs:comment>Ground action involving clamp usage (for the case when the ground is applied along the line segment instead of at its terminals).</rdfs:comment>
+		<rdfs:domain rdf:resource="#ACLineSegment"/>
+		<rdfs:range rdf:resource="#GroundAction"/>
+		<cims:multiplicity rdf:resource="http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#M:0..1"/>
+		<cims:inverseRoleName rdf:resource="#GroundAction.AlongACLineSegment"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="#ACLineSegment.LineJumpingAction">
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+		<rdfs:label>LineJumpingAction</rdfs:label>
+		<rdfs:comment>Jumper action involving clamp usage (for the case when the jumper is applied along the line segment instead of at its terminals).</rdfs:comment>
+		<rdfs:domain rdf:resource="#ACLineSegment"/>
+		<rdfs:range rdf:resource="#JumperAction"/>
+		<cims:multiplicity rdf:resource="http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#M:0..1"/>
+		<cims:inverseRoleName rdf:resource="#JumperAction.ACLineSegments"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="#ACLineSegment.PerLengthImpedance">
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+		<rdfs:label>PerLengthImpedance</rdfs:label>
+		<rdfs:comment>Per-length impedance of this line segment.</rdfs:comment>
+		<rdfs:domain rdf:resource="#ACLineSegment"/>
+		<rdfs:range rdf:resource="#PerLengthImpedance"/>
+		<cims:multiplicity rdf:resource="http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#M:0..1"/>
+		<cims:inverseRoleName rdf:resource="#PerLengthImpedance.ACLineSegments"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="#ACLineSegment.WireSpacingInfo">
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+		<rdfs:label>WireSpacingInfo</rdfs:label>
+		<rdfs:domain rdf:resource="#ACLineSegment"/>
+		<rdfs:range rdf:resource="#WireSpacingInfo"/>
+		<cims:multiplicity rdf:resource="http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#M:0..1"/>
+		<cims:inverseRoleName rdf:resource="#WireSpacingInfo.ACLineSegment"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="#ACLineSegment.b0ch">
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+		<rdfs:label>b0ch</rdfs:label>
+		<rdfs:comment>Zero sequence shunt (charging) susceptance, uniformly distributed, of the entire line section.</rdfs:comment>
+		<rdfs:domain rdf:resource="#ACLineSegment"/>
+		<cims:dataType rdf:resource="#Susceptance"/>
+		<cims:multiplicity rdf:resource="http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#M:0..1"/>
+		<cims:stereotype rdf:resource="http://langdale.com.au/2005/UML#attribute"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="#ACLineSegment.bch">
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+		<rdfs:label>bch</rdfs:label>
+		<rdfs:comment>Positive sequence shunt (charging) susceptance, uniformly distributed, of the entire line section.  This value represents the full charging over the full length of the line.</rdfs:comment>
+		<rdfs:domain rdf:resource="#ACLineSegment"/>
+		<cims:dataType rdf:resource="#Susceptance"/>
+		<cims:multiplicity rdf:resource="http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#M:0..1"/>
+		<cims:stereotype rdf:resource="http://langdale.com.au/2005/UML#attribute"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="#ACLineSegment.g0ch">
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+		<rdfs:label>g0ch</rdfs:label>
+		<rdfs:comment>Zero sequence shunt (charging) conductance, uniformly distributed, of the entire line section.</rdfs:comment>
+		<rdfs:domain rdf:resource="#ACLineSegment"/>
+		<cims:dataType rdf:resource="#Conductance"/>
+		<cims:multiplicity rdf:resource="http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#M:0..1"/>
+		<cims:stereotype rdf:resource="http://langdale.com.au/2005/UML#attribute"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="#ACLineSegment.gch">
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+		<rdfs:label>gch</rdfs:label>
+		<rdfs:comment>Positive sequence shunt (charging) conductance, uniformly distributed, of the entire line section.</rdfs:comment>
+		<rdfs:domain rdf:resource="#ACLineSegment"/>
+		<cims:dataType rdf:resource="#Conductance"/>
+		<cims:multiplicity rdf:resource="http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#M:0..1"/>
+		<cims:stereotype rdf:resource="http://langdale.com.au/2005/UML#attribute"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="#ACLineSegment.r">
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+		<rdfs:label>r</rdfs:label>
+		<rdfs:comment>Positive sequence series resistance of the entire line section.</rdfs:comment>
+		<rdfs:domain rdf:resource="#ACLineSegment"/>
+		<cims:dataType rdf:resource="#Resistance"/>
+		<cims:multiplicity rdf:resource="http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#M:0..1"/>
+		<cims:stereotype rdf:resource="http://langdale.com.au/2005/UML#attribute"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="#ACLineSegment.r0">
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+		<rdfs:label>r0</rdfs:label>
+		<rdfs:comment>Zero sequence series resistance of the entire line section.</rdfs:comment>
+		<rdfs:domain rdf:resource="#ACLineSegment"/>
+		<cims:dataType rdf:resource="#Resistance"/>
+		<cims:multiplicity rdf:resource="http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#M:0..1"/>
+		<cims:stereotype rdf:resource="http://langdale.com.au/2005/UML#attribute"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="#ACLineSegment.shortCircuitEndTemperature">
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+		<rdfs:label>shortCircuitEndTemperature</rdfs:label>
+		<rdfs:comment>Maximum permitted temperature at the end of SC for the calculation of minimum short-circuit currents. Used for short circuit data exchange according to IEC 60909.</rdfs:comment>
+		<rdfs:domain rdf:resource="#ACLineSegment"/>
+		<cims:dataType rdf:resource="#Temperature"/>
+		<cims:multiplicity rdf:resource="http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#M:0..1"/>
+		<cims:stereotype rdf:resource="http://langdale.com.au/2005/UML#attribute"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="#ACLineSegment.x">
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+		<rdfs:label>x</rdfs:label>
+		<rdfs:comment>Positive sequence series reactance of the entire line section.</rdfs:comment>
+		<rdfs:domain rdf:resource="#ACLineSegment"/>
+		<cims:dataType rdf:resource="#Reactance"/>
+		<cims:multiplicity rdf:resource="http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#M:0..1"/>
+		<cims:stereotype rdf:resource="http://langdale.com.au/2005/UML#attribute"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="#ACLineSegment.x0">
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+		<rdfs:label>x0</rdfs:label>
+		<rdfs:comment>Zero sequence series reactance of the entire line section.</rdfs:comment>
+		<rdfs:domain rdf:resource="#ACLineSegment"/>
+		<cims:dataType rdf:resource="#Reactance"/>
+		<cims:multiplicity rdf:resource="http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#M:0..1"/>
+		<cims:stereotype rdf:resource="http://langdale.com.au/2005/UML#attribute"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="#ACLineSegmentPhase">
+		<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+		<rdfs:label>#ACLineSegmentPhase</rdfs:label>
+		<rdfs:comment>Represents a single wire of an alternating current line segment.</rdfs:comment>
+		<cims:belongsToCategory rdf:resource="#Package_Wires"/>
+		<rdfs:subClassOf rdf:resource="#PowerSystemResource"/>
+	</rdf:Description>
 	<rdf:Description rdf:about="#AngleDegrees">
 		<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 		<rdfs:label>#AngleDegrees</rdfs:label>
@@ -42,6 +210,14 @@
 		<rdfs:label>#ChangeSetMember</rdfs:label>
 		<rdfs:comment>A CRUD-style data object.</rdfs:comment>
 		<cims:belongsToCategory rdf:resource="#Package_GenericDataSet"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="#Clamp">
+		<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+		<rdfs:label>#Clamp</rdfs:label>
+		<rdfs:comment>A Clamp is a galvanic connection at a line segment where other equipment is connected. A Clamp does not cut the line segment. 
+A Clamp is ConductingEquipment and has one Terminal with an associated ConnectivityNode. Any other ConductingEquipment can be connected to the Clamp ConnectivityNode.</rdfs:comment>
+		<cims:belongsToCategory rdf:resource="#Package_Wires"/>
+		<rdfs:subClassOf rdf:resource="#ConductingEquipment"/>
 	</rdf:Description>
 	<rdf:Description rdf:about="#ClearanceDocument">
 		<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
@@ -91,6 +267,15 @@
 		<rdfs:comment>Electrical current with sign convention: positive flow is out of the conducting equipment into the connectivity node. Can be both AC and DC.</rdfs:comment>
 		<cims:belongsToCategory rdf:resource="#Package_Domain"/>
 		<cims:stereotype rdf:resource="http://langdale.com.au/2005/UML#cimdatatype"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="#Cut">
+		<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+		<rdfs:label>#Cut</rdfs:label>
+		<rdfs:comment>A cut separates a line segment into two parts. The cut appears as a switch inserted between these two parts and connects them together. As the cut is normally open there is no galvanic connection between the two line segment parts. But it is possible to close the cut to get galvanic connection.
+The cut terminals are oriented towards the line segment terminals with the same sequence number. Hence the cut terminal with sequence number equal to 1 is oriented to the line segment's terminal with sequence number equal to 1.
+The cut terminals also act as connection points for jumpers and other equipment, e.g. a mobile generator. To enable this, connectivity nodes are placed at the cut terminals. Once the connectivity nodes are in place any conducting equipment can be connected at them.</rdfs:comment>
+		<cims:belongsToCategory rdf:resource="#Package_Wires"/>
+		<rdfs:subClassOf rdf:resource="#ConductingEquipment"/>
 	</rdf:Description>
 	<rdf:Description rdf:about="#DiagramObject">
 		<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
@@ -153,12 +338,26 @@
 		<cims:belongsToCategory rdf:resource="#Package_Operations"/>
 		<rdfs:subClassOf rdf:resource="#IdentifiedObject"/>
 	</rdf:Description>
+	<rdf:Description rdf:about="#Length">
+		<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+		<rdfs:label>#Length</rdfs:label>
+		<rdfs:comment>Unit of length. It shall be a positive value or zero.</rdfs:comment>
+		<cims:belongsToCategory rdf:resource="#Package_Domain"/>
+		<cims:stereotype rdf:resource="http://langdale.com.au/2005/UML#cimdatatype"/>
+	</rdf:Description>
 	<rdf:Description rdf:about="#LimitDependency">
 		<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 		<rdfs:label>#LimitDependency</rdfs:label>
 		<rdfs:comment>A limit calculation model used to compute an operational limit based on external input such as temperature. These are intended to be shared among operational limits with the same calculation form that apply to a piece of equipment..</rdfs:comment>
 		<cims:belongsToCategory rdf:resource="#Package_InfOperationalLimits"/>
 		<rdfs:subClassOf rdf:resource="#IdentifiedObject"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="#LineFault">
+		<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+		<rdfs:label>#LineFault</rdfs:label>
+		<rdfs:comment>A fault that occurs on an AC line segment at some point along the length.</rdfs:comment>
+		<cims:belongsToCategory rdf:resource="#Package_Faults"/>
+		<rdfs:subClassOf rdf:resource="#Fault"/>
 	</rdf:Description>
 	<rdf:Description rdf:about="#Location">
 		<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
@@ -249,6 +448,13 @@ A planned outage may be created upon:
 		<rdfs:comment>Percentage on a defined base.   For example, specify as 100 to indicate at the defined base.</rdfs:comment>
 		<cims:belongsToCategory rdf:resource="#Package_Domain"/>
 		<cims:stereotype rdf:resource="http://langdale.com.au/2005/UML#cimdatatype"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="#PerLengthImpedance">
+		<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+		<rdfs:label>#PerLengthImpedance</rdfs:label>
+		<rdfs:comment>Common type for per-length impedance electrical catalogues.</rdfs:comment>
+		<cims:belongsToCategory rdf:resource="#Package_Wires"/>
+		<rdfs:subClassOf rdf:resource="#IdentifiedObject"/>
 	</rdf:Description>
 	<rdf:Description rdf:about="#PhaseTapChanger">
 		<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
@@ -630,6 +836,13 @@ When the increment is negative, the voltage decreases when the tap step increase
 		<cims:belongsToCategory rdf:resource="#Package_Wires"/>
 		<rdfs:subClassOf rdf:resource="#IdentifiedObject"/>
 	</rdf:Description>
+	<rdf:Description rdf:about="#Temperature">
+		<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+		<rdfs:label>#Temperature</rdfs:label>
+		<rdfs:comment>Value of temperature in degrees Celsius.</rdfs:comment>
+		<cims:belongsToCategory rdf:resource="#Package_Domain"/>
+		<cims:stereotype rdf:resource="http://langdale.com.au/2005/UML#cimdatatype"/>
+	</rdf:Description>
 	<rdf:Description rdf:about="#Terminal">
 		<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 		<rdfs:label>#Terminal</rdfs:label>
@@ -716,12 +929,54 @@ For transmission networks use PowerTransformerEnd impedances (r, r0, x, x0, b, b
 		<cims:belongsToCategory rdf:resource="#Package_Wires"/>
 		<cims:stereotype rdf:resource="http://langdale.com.au/2005/UML#enumeration"/>
 	</rdf:Description>
+	<rdf:Description rdf:about="#WindingConnection.A">
+		<rdf:type rdf:resource="#WindingConnection"/>
+		<rdfs:label>A</rdfs:label>
+		<rdfs:comment>Autotransformer common winding.</rdfs:comment>
+	</rdf:Description>
+	<rdf:Description rdf:about="#WindingConnection.D">
+		<rdf:type rdf:resource="#WindingConnection"/>
+		<rdfs:label>D</rdfs:label>
+		<rdfs:comment>Delta.</rdfs:comment>
+	</rdf:Description>
+	<rdf:Description rdf:about="#WindingConnection.I">
+		<rdf:type rdf:resource="#WindingConnection"/>
+		<rdfs:label>I</rdfs:label>
+		<rdfs:comment>Independent winding, for single-phase connections.</rdfs:comment>
+	</rdf:Description>
+	<rdf:Description rdf:about="#WindingConnection.Y">
+		<rdf:type rdf:resource="#WindingConnection"/>
+		<rdfs:label>Y</rdfs:label>
+		<rdfs:comment>Wye.</rdfs:comment>
+	</rdf:Description>
+	<rdf:Description rdf:about="#WindingConnection.Yn">
+		<rdf:type rdf:resource="#WindingConnection"/>
+		<rdfs:label>Yn</rdfs:label>
+		<rdfs:comment>Wye, with neutral brought out for grounding.</rdfs:comment>
+	</rdf:Description>
+	<rdf:Description rdf:about="#WindingConnection.Z">
+		<rdf:type rdf:resource="#WindingConnection"/>
+		<rdfs:label>Z</rdfs:label>
+		<rdfs:comment>ZigZag.</rdfs:comment>
+	</rdf:Description>
+	<rdf:Description rdf:about="#WindingConnection.Zn">
+		<rdf:type rdf:resource="#WindingConnection"/>
+		<rdfs:label>Zn</rdfs:label>
+		<rdfs:comment>ZigZag, with neutral brought out for grounding.</rdfs:comment>
+	</rdf:Description>
 	<rdf:Description rdf:about="#WindingInsulation">
 		<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 		<rdfs:label>#WindingInsulation</rdfs:label>
 		<rdfs:comment>Winding insulation condition as a result of a test.</rdfs:comment>
 		<cims:belongsToCategory rdf:resource="#Package_InfAssets"/>
 		<rdfs:subClassOf rdf:resource="#IdentifiedObject"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="#WireSpacingInfo">
+		<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+		<rdfs:label>#WireSpacingInfo</rdfs:label>
+		<rdfs:comment>Wire spacing data that associates multiple wire positions with the line segment, and allows to calculate line segment impedances. Number of phases can be derived from the number of associated wire positions whose phase is not neutral.</rdfs:comment>
+		<cims:belongsToCategory rdf:resource="#Package_AssetInfo"/>
+		<rdfs:subClassOf rdf:resource="#AssetInfo"/>
 	</rdf:Description>
 	<rdf:Description rdf:about="#IdentifiedObject.DiagramObjects">
 		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
@@ -781,7 +1036,7 @@ For transmission networks use PowerTransformerEnd impedances (r, r0, x, x0, b, b
 		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
 		<rdfs:label>normallyInService</rdfs:label>
 		<rdfs:comment>Specifies the availability of the equipment under normal operating conditions. True means the equipment is available for topology processing, which determines if the equipment is energized or not. False means that the equipment is treated by network applications as if it is not in the model.</rdfs:comment>
-		<rdfs:domain rdf:resource="#Equipment"/>
+		<rdfs:domain rdf:resource="#ConductingEquipment"/>
 		<cims:dataType rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
 		<cims:multiplicity rdf:resource="http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#M:0..1"/>
 		<cims:stereotype rdf:resource="http://langdale.com.au/2005/UML#attribute"/>
@@ -956,6 +1211,15 @@ The attribute aliasName is retained because of backwards compatibility between C
 		<cims:multiplicity rdf:resource="http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#M:0..n"/>
 		<cims:inverseRoleName rdf:resource="#Asset.PowerSystemResources"/>
 	</rdf:Description>
+	<rdf:Description rdf:about="#Conductor.length">
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+		<rdfs:label>length</rdfs:label>
+		<rdfs:comment>Segment length for calculating line section capabilities.</rdfs:comment>
+		<rdfs:domain rdf:resource="#Conductor"/>
+		<cims:dataType rdf:resource="#Length"/>
+		<cims:multiplicity rdf:resource="http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#M:0..1"/>
+		<cims:stereotype rdf:resource="http://langdale.com.au/2005/UML#attribute"/>
+	</rdf:Description>
 	<rdf:Description rdf:about="#PowerSystemResource.ReportingGroup">
 		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
 		<rdfs:label>ReportingGroup</rdfs:label>
@@ -997,7 +1261,7 @@ The attribute aliasName is retained because of backwards compatibility between C
 		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
 		<rdfs:label>AdditionalEquipmentContainer</rdfs:label>
 		<rdfs:comment>Additional equipment container beyond the primary equipment container.  The equipment is contained in another equipment container, but also grouped with this equipment container.</rdfs:comment>
-		<rdfs:domain rdf:resource="#Equipment"/>
+		<rdfs:domain rdf:resource="#ConductingEquipment"/>
 		<rdfs:range rdf:resource="#EquipmentContainer"/>
 		<cims:multiplicity rdf:resource="http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#M:0..n"/>
 		<cims:inverseRoleName rdf:resource="#EquipmentContainer.AdditionalGroupedEquipment"/>
@@ -1015,7 +1279,7 @@ The attribute aliasName is retained because of backwards compatibility between C
 		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
 		<rdfs:label>OperationalRestrictions</rdfs:label>
 		<rdfs:comment>All operational restrictions for this equipment.</rdfs:comment>
-		<rdfs:domain rdf:resource="#Equipment"/>
+		<rdfs:domain rdf:resource="#ConductingEquipment"/>
 		<rdfs:range rdf:resource="#OperationalRestriction"/>
 		<cims:multiplicity rdf:resource="http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#M:0..n"/>
 		<cims:inverseRoleName rdf:resource="#OperationalRestriction.Equipments"/>
@@ -1024,7 +1288,7 @@ The attribute aliasName is retained because of backwards compatibility between C
 		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
 		<rdfs:label>Outages</rdfs:label>
 		<rdfs:comment>All outages in which this equipment is involved.</rdfs:comment>
-		<rdfs:domain rdf:resource="#Equipment"/>
+		<rdfs:domain rdf:resource="#ConductingEquipment"/>
 		<rdfs:range rdf:resource="#Outage"/>
 		<cims:multiplicity rdf:resource="http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#M:0..n"/>
 		<cims:inverseRoleName rdf:resource="#Outage.Equipments"/>
@@ -1032,7 +1296,7 @@ The attribute aliasName is retained because of backwards compatibility between C
 	<rdf:Description rdf:about="#Equipment.WeatherStation">
 		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
 		<rdfs:label>WeatherStation</rdfs:label>
-		<rdfs:domain rdf:resource="#Equipment"/>
+		<rdfs:domain rdf:resource="#ConductingEquipment"/>
 		<rdfs:range rdf:resource="#WeatherStation"/>
 		<cims:multiplicity rdf:resource="http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#M:0..n"/>
 		<cims:inverseRoleName rdf:resource="#WeatherStation.Equipment"/>
@@ -1041,7 +1305,7 @@ The attribute aliasName is retained because of backwards compatibility between C
 		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
 		<rdfs:label>ProtectiveActionEquipment</rdfs:label>
 		<rdfs:comment>Protective action is controlling equipment. This can be direct signals from the control center, or emulation of action done by protection equipment.</rdfs:comment>
-		<rdfs:domain rdf:resource="#Equipment"/>
+		<rdfs:domain rdf:resource="#ConductingEquipment"/>
 		<rdfs:range rdf:resource="#ProtectiveActionEquipment"/>
 		<cims:multiplicity rdf:resource="http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#M:0..n"/>
 		<cims:inverseRoleName rdf:resource="#ProtectiveActionEquipment.Equipment"/>
@@ -1049,7 +1313,7 @@ The attribute aliasName is retained because of backwards compatibility between C
 	<rdf:Description rdf:about="#Equipment.EquipmentUnavailabilitySchedule">
 		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
 		<rdfs:label>EquipmentUnavailabilitySchedule</rdfs:label>
-		<rdfs:domain rdf:resource="#Equipment"/>
+		<rdfs:domain rdf:resource="#ConductingEquipment"/>
 		<rdfs:range rdf:resource="#EquipmentUnavailabilitySchedule"/>
 		<cims:multiplicity rdf:resource="http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#M:0..n"/>
 		<cims:inverseRoleName rdf:resource="#EquipmentUnavailabilitySchedule.Equipment"/>
@@ -1057,7 +1321,7 @@ The attribute aliasName is retained because of backwards compatibility between C
 	<rdf:Description rdf:about="#Equipment.PinEquipment">
 		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
 		<rdfs:label>PinEquipment</rdfs:label>
-		<rdfs:domain rdf:resource="#Equipment"/>
+		<rdfs:domain rdf:resource="#ConductingEquipment"/>
 		<rdfs:range rdf:resource="#PinEquipment"/>
 		<cims:multiplicity rdf:resource="http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#M:0..n"/>
 		<cims:inverseRoleName rdf:resource="#PinEquipment.Equipment"/>
@@ -1066,7 +1330,7 @@ The attribute aliasName is retained because of backwards compatibility between C
 		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
 		<rdfs:label>UsagePoints</rdfs:label>
 		<rdfs:comment>All usage points connected to the electrical grid through this equipment.</rdfs:comment>
-		<rdfs:domain rdf:resource="#Equipment"/>
+		<rdfs:domain rdf:resource="#ConductingEquipment"/>
 		<rdfs:range rdf:resource="#UsagePoint"/>
 		<cims:multiplicity rdf:resource="http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#M:0..n"/>
 		<cims:inverseRoleName rdf:resource="#UsagePoint.Equipments"/>
@@ -1095,7 +1359,7 @@ It is the step position where the voltage is neutralU when the other terminals o
 		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
 		<rdfs:label>OperationalLimitSet</rdfs:label>
 		<rdfs:comment>The operational limit sets associated with this equipment.</rdfs:comment>
-		<rdfs:domain rdf:resource="#Equipment"/>
+		<rdfs:domain rdf:resource="#ConductingEquipment"/>
 		<rdfs:range rdf:resource="#OperationalLimitSet"/>
 		<cims:multiplicity rdf:resource="http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#M:0..n"/>
 		<cims:inverseRoleName rdf:resource="#OperationalLimitSet.Equipment"/>
@@ -1104,7 +1368,7 @@ It is the step position where the voltage is neutralU when the other terminals o
 		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
 		<rdfs:label>LimitDependencyModel</rdfs:label>
 		<rdfs:comment>Limit dependencymodels organized under this equipment as a means for organizing the model in a tree view.</rdfs:comment>
-		<rdfs:domain rdf:resource="#Equipment"/>
+		<rdfs:domain rdf:resource="#ConductingEquipment"/>
 		<rdfs:range rdf:resource="#LimitDependency"/>
 		<cims:multiplicity rdf:resource="http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#M:0..n"/>
 		<cims:inverseRoleName rdf:resource="#LimitDependency.Equipment"/>
@@ -1114,7 +1378,7 @@ It is the step position where the voltage is neutralU when the other terminals o
 		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
 		<rdfs:label>EqiupmentLimitSeriesComponent</rdfs:label>
 		<rdfs:comment>Equipment limit series calculation component to which this equipment contributes.</rdfs:comment>
-		<rdfs:domain rdf:resource="#Equipment"/>
+		<rdfs:domain rdf:resource="#ConductingEquipment"/>
 		<rdfs:range rdf:resource="#EquipmentLimitSeriesComponent"/>
 		<cims:multiplicity rdf:resource="http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#M:0..n"/>
 		<cims:inverseRoleName rdf:resource="#EquipmentLimitSeriesComponent.Equipment"/>
@@ -1123,7 +1387,7 @@ It is the step position where the voltage is neutralU when the other terminals o
 		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
 		<rdfs:label>networkAnalysisEnabled</rdfs:label>
 		<rdfs:comment>The equipment is enabled to participate in network analysis.  If unspecified, the value is assumed to be true.</rdfs:comment>
-		<rdfs:domain rdf:resource="#Equipment"/>
+		<rdfs:domain rdf:resource="#ConductingEquipment"/>
 		<cims:dataType rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
 		<cims:multiplicity rdf:resource="http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#M:0..1"/>
 		<cims:stereotype rdf:resource="http://langdale.com.au/2005/UML#attribute"/>
@@ -1153,7 +1417,7 @@ The attribute shall be equal to or greater than lowStep and equal to or less tha
 		<rdfs:label>aggregate</rdfs:label>
 		<rdfs:comment>The aggregate flag provides an alternative way of representing an aggregated (equivalent) element. It is applicable in cases when the dedicated classes for equivalent equipment do not have all of the attributes necessary to represent the required level of detail.  In case the flag is set to “true” the single instance of equipment represents multiple pieces of equipment that have been modelled together as an aggregate equivalent obtained by a network reduction procedure. Examples would be power transformers or synchronous machines operating in parallel modelled as a single aggregate power transformer or aggregate synchronous machine.  
 The attribute is not used for EquivalentBranch, EquivalentShunt and EquivalentInjection.</rdfs:comment>
-		<rdfs:domain rdf:resource="#Equipment"/>
+		<rdfs:domain rdf:resource="#ConductingEquipment"/>
 		<cims:dataType rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
 		<cims:multiplicity rdf:resource="http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#M:0..1"/>
 		<cims:stereotype rdf:resource="http://langdale.com.au/2005/UML#attribute"/>
@@ -1171,7 +1435,7 @@ The attribute is not used for EquivalentBranch, EquivalentShunt and EquivalentIn
 		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
 		<rdfs:label>inService</rdfs:label>
 		<rdfs:comment>Specifies the availability of the equipment. True means the equipment is available for topology processing, which determines if the equipment is energized or not. False means that the equipment is treated by network applications as if it is not in the model.</rdfs:comment>
-		<rdfs:domain rdf:resource="#Equipment"/>
+		<rdfs:domain rdf:resource="#ConductingEquipment"/>
 		<cims:dataType rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
 		<cims:multiplicity rdf:resource="http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#M:0..1"/>
 		<cims:stereotype rdf:resource="http://langdale.com.au/2005/UML#attribute"/>
@@ -1270,7 +1534,7 @@ The attribute shall be greater than lowStep.</rdfs:comment>
 		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
 		<rdfs:label>EquipmentContainer</rdfs:label>
 		<rdfs:comment>Container of this equipment.</rdfs:comment>
-		<rdfs:domain rdf:resource="#Equipment"/>
+		<rdfs:domain rdf:resource="#ConductingEquipment"/>
 		<rdfs:range rdf:resource="#EquipmentContainer"/>
 		<cims:multiplicity rdf:resource="http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#M:0..1"/>
 		<cims:inverseRoleName rdf:resource="#EquipmentContainer.Equipments"/>
@@ -1280,7 +1544,7 @@ The attribute shall be greater than lowStep.</rdfs:comment>
 		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
 		<rdfs:label>ContingencyEquipment</rdfs:label>
 		<rdfs:comment>The contingency equipments in which this equipment participates.</rdfs:comment>
-		<rdfs:domain rdf:resource="#Equipment"/>
+		<rdfs:domain rdf:resource="#ConductingEquipment"/>
 		<rdfs:range rdf:resource="#ContingencyEquipment"/>
 		<cims:multiplicity rdf:resource="http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#M:0..n"/>
 		<cims:inverseRoleName rdf:resource="#ContingencyEquipment.Equipment"/>
@@ -1298,7 +1562,7 @@ The attribute shall be greater than lowStep.</rdfs:comment>
 		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
 		<rdfs:label>Faults</rdfs:label>
 		<rdfs:comment>All faults on this equipment.</rdfs:comment>
-		<rdfs:domain rdf:resource="#Equipment"/>
+		<rdfs:domain rdf:resource="#ConductingEquipment"/>
 		<rdfs:range rdf:resource="#Fault"/>
 		<cims:multiplicity rdf:resource="http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#M:0..n"/>
 		<cims:inverseRoleName rdf:resource="#Fault.FaultyEquipment"/>
@@ -1504,6 +1768,15 @@ The attribute shall be greater than lowStep.</rdfs:comment>
 		<cims:multiplicity rdf:resource="http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#M:0..n"/>
 		<cims:inverseRoleName rdf:resource="#PowerSystemResource.PSRType"/>
 	</rdf:Description>
+	<rdf:Description rdf:about="#ACLineSegmentPhase.ACLineSegment">
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+		<rdfs:label>ACLineSegment</rdfs:label>
+		<rdfs:comment>The line segment to which the phase belongs.</rdfs:comment>
+		<rdfs:domain rdf:resource="#ACLineSegmentPhase"/>
+		<rdfs:range rdf:resource="#ACLineSegment"/>
+		<cims:multiplicity rdf:resource="http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#M:1"/>
+		<cims:inverseRoleName rdf:resource="#ACLineSegment.ACLineSegmentPhases"/>
+	</rdf:Description>
 	<rdf:Description rdf:about="#ProtectiveActionAdjustment.ConductingEquipment">
 		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
 		<rdfs:label>ConductingEquipment</rdfs:label>
@@ -1555,6 +1828,15 @@ The attribute shall be greater than lowStep.</rdfs:comment>
 		<rdfs:range rdf:resource="#PowerSystemResource"/>
 		<cims:multiplicity rdf:resource="http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#M:0..1"/>
 		<cims:inverseRoleName rdf:resource="#PowerSystemResource.OperationalTags"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="#JumperAction.ACLineSegments">
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+		<rdfs:label>ACLineSegments</rdfs:label>
+		<rdfs:comment>The line segment that this jumper action will affect. This is the only way to access relationship to clamp in case the jumper needs to connect along the line segment.</rdfs:comment>
+		<rdfs:domain rdf:resource="#JumperAction"/>
+		<rdfs:range rdf:resource="#ACLineSegment"/>
+		<cims:multiplicity rdf:resource="http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#M:0..n"/>
+		<cims:inverseRoleName rdf:resource="#ACLineSegment.LineJumpingAction"/>
 	</rdf:Description>
 	<rdf:Description rdf:about="#JumperAction.JumpedEquipments">
 		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
@@ -1609,6 +1891,15 @@ The attribute shall be greater than lowStep.</rdfs:comment>
 		<rdfs:range rdf:resource="#RatioTapChanger"/>
 		<cims:multiplicity rdf:resource="http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#M:0..n"/>
 		<cims:inverseRoleName rdf:resource="#RatioTapChanger.RatioTapChangerTable"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="#GroundAction.AlongACLineSegment">
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+		<rdfs:label>AlongACLineSegment</rdfs:label>
+		<rdfs:comment>The line segment that this ground action will affect. This is the only way to access relationship to clamp in case the ground needs to be placed along the line segment.</rdfs:comment>
+		<rdfs:domain rdf:resource="#GroundAction"/>
+		<rdfs:range rdf:resource="#ACLineSegment"/>
+		<cims:multiplicity rdf:resource="http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#M:0..1"/>
+		<cims:inverseRoleName rdf:resource="#ACLineSegment.LineGroundingAction"/>
 	</rdf:Description>
 	<rdf:Description rdf:about="#GenericAction.PowerSystemResource">
 		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
@@ -1725,6 +2016,15 @@ The attribute shall be greater than lowStep.</rdfs:comment>
 		<cims:multiplicity rdf:resource="http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#M:0..n"/>
 		<cims:inverseRoleName rdf:resource="#TransformerEnd.StarImpedance"/>
 	</rdf:Description>
+	<rdf:Description rdf:about="#Clamp.ACLineSegment">
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+		<rdfs:label>ACLineSegment</rdfs:label>
+		<rdfs:comment>The line segment to which the clamp is connected.</rdfs:comment>
+		<rdfs:domain rdf:resource="#Clamp"/>
+		<rdfs:range rdf:resource="#ACLineSegment"/>
+		<cims:multiplicity rdf:resource="http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#M:1"/>
+		<cims:inverseRoleName rdf:resource="#ACLineSegment.Clamp"/>
+	</rdf:Description>
 	<rdf:Description rdf:about="#Control.PowerSystemResource">
 		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
 		<rdfs:label>PowerSystemResource</rdfs:label>
@@ -1751,6 +2051,15 @@ The attribute shall be greater than lowStep.</rdfs:comment>
 		<cims:multiplicity rdf:resource="http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#M:0..1"/>
 		<cims:inverseRoleName rdf:resource="#Equipment.Faults"/>
 	</rdf:Description>
+	<rdf:Description rdf:about="#PerLengthImpedance.ACLineSegments">
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+		<rdfs:label>ACLineSegments</rdfs:label>
+		<rdfs:comment>All line segments described by this per-length impedance.</rdfs:comment>
+		<rdfs:domain rdf:resource="#PerLengthImpedance"/>
+		<rdfs:range rdf:resource="#ACLineSegment"/>
+		<cims:multiplicity rdf:resource="http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#M:0..n"/>
+		<cims:inverseRoleName rdf:resource="#ACLineSegment.PerLengthImpedance"/>
+	</rdf:Description>
 	<rdf:Description rdf:about="#ProtectionEquipment.ConductingEquipments">
 		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
 		<rdfs:label>ConductingEquipments</rdfs:label>
@@ -1760,6 +2069,24 @@ The attribute shall be greater than lowStep.</rdfs:comment>
 		<cims:multiplicity rdf:resource="http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#M:0..n"/>
 		<cims:inverseRoleName rdf:resource="#ConductingEquipment.ProtectionEquipments"/>
 	</rdf:Description>
+	<rdf:Description rdf:about="#Cut.ACLineSegment">
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+		<rdfs:label>ACLineSegment</rdfs:label>
+		<rdfs:comment>The line segment to which the cut is applied.</rdfs:comment>
+		<rdfs:domain rdf:resource="#Cut"/>
+		<rdfs:range rdf:resource="#ACLineSegment"/>
+		<cims:multiplicity rdf:resource="http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#M:1"/>
+		<cims:inverseRoleName rdf:resource="#ACLineSegment.Cut"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="#LineFault.ACLineSegment">
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+		<rdfs:label>ACLineSegment</rdfs:label>
+		<rdfs:comment>The line segment of this line fault.</rdfs:comment>
+		<rdfs:domain rdf:resource="#LineFault"/>
+		<rdfs:range rdf:resource="#ACLineSegment"/>
+		<cims:multiplicity rdf:resource="http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#M:0..1"/>
+		<cims:inverseRoleName rdf:resource="#ACLineSegment.LineFaults"/>
+	</rdf:Description>
 	<rdf:Description rdf:about="#PhaseTapChanger.TransformerEnd">
 		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
 		<rdfs:label>TransformerEnd</rdfs:label>
@@ -1768,6 +2095,14 @@ The attribute shall be greater than lowStep.</rdfs:comment>
 		<rdfs:range rdf:resource="#TransformerEnd"/>
 		<cims:multiplicity rdf:resource="http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#M:1"/>
 		<cims:inverseRoleName rdf:resource="#TransformerEnd.PhaseTapChanger"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="#WireSpacingInfo.ACLineSegment">
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+		<rdfs:label>ACLineSegment</rdfs:label>
+		<rdfs:domain rdf:resource="#WireSpacingInfo"/>
+		<rdfs:range rdf:resource="#ACLineSegment"/>
+		<cims:multiplicity rdf:resource="http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#M:0..n"/>
+		<cims:inverseRoleName rdf:resource="#ACLineSegment.WireSpacingInfo"/>
 	</rdf:Description>
 	<rdf:Description rdf:about="#EquipmentUnavailabilitySchedule.Equipment">
 		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
@@ -1964,6 +2299,12 @@ WG14 does not generate documentation for this informative portion of the model.<
 		<rdfs:label>InfSIPS</rdfs:label>
 		<rdfs:comment>System Integrity Protection Schemes (SIPS) (IEC terminology). Other names used are: Remedial Action Schemes (RAS) or System Protection Schemes (SPS).</rdfs:comment>
 		<cims:belongsToCategory rdf:resource="#Package_InfIEC61970"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="#Package_AssetInfo">
+		<rdf:type rdf:resource="http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#ClassCategory"/>
+		<rdfs:label>AssetInfo</rdfs:label>
+		<rdfs:comment>This package is an extension of Assets package and contains the core information classes that support asset management and different network and work planning applications with specialized AssetInfo subclasses. They hold attributes that can be referenced by not only Asset-s or AssetModel-s but also by ConductingEquipment-s.</rdfs:comment>
+		<cims:belongsToCategory rdf:resource="#Package_IEC61968"/>
 	</rdf:Description>
 	<rdf:Description rdf:about="#Package_DiagramLayout">
 		<rdf:type rdf:resource="http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#ClassCategory"/>
