@@ -1,0 +1,1031 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:sawsdl="http://www.w3.org/ns/sawsdl" xmlns:m="http://iec.ch/TC57/test#" targetNamespace="http://iec.ch/TC57/test#" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:simpleType name="AngleDegrees" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#AngleDegrees">
+		<xs:annotation>
+			<xs:documentation>Measurement of angle in degrees.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:float"/>
+	</xs:simpleType>
+	<xs:simpleType name="ApparentPower" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#ApparentPower">
+		<xs:annotation>
+			<xs:documentation>Product of the RMS value of the voltage and the RMS value of the current.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:float"/>
+	</xs:simpleType>
+	<xs:complexType name="Asset" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#Asset">
+		<xs:annotation>
+			<xs:documentation>Tangible resource of the utility, including power system equipment, various end devices, cabinets, buildings, etc. For electrical network equipment, the role of the asset is defined through PowerSystemResource and its subclasses, defined mainly in the Wires model (refer to IEC61970-301 and model package IEC61970::Wires). Asset description places emphasis on the physical characteristics of the equipment fulfilling that role.</xs:documentation>
+		</xs:annotation>
+	</xs:complexType>
+	<xs:complexType name="AssetInfo" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#AssetInfo">
+		<xs:annotation>
+			<xs:documentation>Set of attributes of an asset, representing typical datasheet information of a physical device that can be instantiated and shared in different data exchange contexts:</xs:documentation>
+			<xs:documentation>- as attributes of an asset instance (installed or in stock)</xs:documentation>
+			<xs:documentation>- as attributes of an asset model (product by a manufacturer)</xs:documentation>
+			<xs:documentation>- as attributes of a type asset (generic type of an asset as used in designs/extension planning).</xs:documentation>
+		</xs:annotation>
+	</xs:complexType>
+	<xs:complexType name="BaseVoltage" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#BaseVoltage">
+		<xs:annotation>
+			<xs:documentation>Defines a system base voltage which is referenced.</xs:documentation>
+		</xs:annotation>
+	</xs:complexType>
+	<xs:complexType name="ChangeSetMember" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#ChangeSetMember">
+		<xs:annotation>
+			<xs:documentation>A CRUD-style data object.</xs:documentation>
+		</xs:annotation>
+	</xs:complexType>
+	<xs:complexType name="ClearanceDocument" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#ClearanceDocument">
+		<xs:annotation>
+			<xs:documentation>Safety document used to authorise work on conducting equipment in the field. Tagged equipment is not allowed to be operated.</xs:documentation>
+		</xs:annotation>
+	</xs:complexType>
+	<xs:simpleType name="Conductance" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#Conductance">
+		<xs:annotation>
+			<xs:documentation>Factor by which voltage must be multiplied to give corresponding power lost from a circuit. Real part of admittance.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:float"/>
+	</xs:simpleType>
+	<xs:complexType name="ConductingEquipment" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#ConductingEquipment">
+		<xs:annotation>
+			<xs:documentation>The parts of the AC power system that are designed to carry current or that are conductively connected through terminals.</xs:documentation>
+		</xs:annotation>
+	</xs:complexType>
+	<xs:complexType name="ConfigurationEvent" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#ConfigurationEvent">
+		<xs:annotation>
+			<xs:documentation>Used to report details on creation, change or deletion of an entity or its configuration.</xs:documentation>
+		</xs:annotation>
+	</xs:complexType>
+	<xs:complexType name="ContingencyEquipment" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#ContingencyEquipment">
+		<xs:annotation>
+			<xs:documentation>Equipment whose in service status is to change, such as a power transformer or AC line segment.</xs:documentation>
+		</xs:annotation>
+	</xs:complexType>
+	<xs:complexType name="Control" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#Control">
+		<xs:annotation>
+			<xs:documentation>Control is used for supervisory/device control. It represents control outputs that are used to change the state in a process, e.g. close or open breaker, a set point value or a raise lower command.</xs:documentation>
+		</xs:annotation>
+	</xs:complexType>
+	<xs:simpleType name="CurrentFlow" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#CurrentFlow">
+		<xs:annotation>
+			<xs:documentation>Electrical current with sign convention: positive flow is out of the conducting equipment into the connectivity node. Can be both AC and DC.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:float"/>
+	</xs:simpleType>
+	<xs:complexType name="DiagramObject" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#DiagramObject">
+		<xs:annotation>
+			<xs:documentation>An object that defines one or more points in a given space. This object can be associated with anything that specializes IdentifiedObject. For single line diagrams such objects typically include such items as analog values, breakers, disconnectors, power transformers, and transmission lines.</xs:documentation>
+		</xs:annotation>
+	</xs:complexType>
+	<xs:complexType name="EquipmentContainer" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#EquipmentContainer">
+		<xs:annotation>
+			<xs:documentation>A modelling construct to provide a root class for containing equipment.</xs:documentation>
+		</xs:annotation>
+	</xs:complexType>
+	<xs:complexType name="EquipmentLimitSeriesComponent" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#EquipmentLimitSeriesComponent">
+		<xs:annotation>
+			<xs:documentation>This represents one instance of an equipment that contributes to the calculation of an operational limit.</xs:documentation>
+		</xs:annotation>
+	</xs:complexType>
+	<xs:complexType name="EquipmentUnavailabilitySchedule" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#EquipmentUnavailabilitySchedule"/>
+	<xs:complexType name="Fault" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#Fault">
+		<xs:annotation>
+			<xs:documentation>Abnormal condition causing current flow through conducting equipment, such as caused by equipment failure or short circuits from objects not typically modelled (for example, a tree falling on a line).</xs:documentation>
+		</xs:annotation>
+	</xs:complexType>
+	<xs:complexType name="GenericAction" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#GenericAction">
+		<xs:annotation>
+			<xs:documentation>An arbitrary switching step.</xs:documentation>
+		</xs:annotation>
+	</xs:complexType>
+	<xs:complexType name="GroundAction" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#GroundAction">
+		<xs:annotation>
+			<xs:documentation>Action on ground as a switching step.</xs:documentation>
+		</xs:annotation>
+	</xs:complexType>
+	<xs:complexType name="InstanceSet" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#InstanceSet">
+		<xs:annotation>
+			<xs:documentation>Instance of a version of a model part.   This corresponds to a payload of instance data.</xs:documentation>
+		</xs:annotation>
+	</xs:complexType>
+	<xs:complexType name="JumperAction" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#JumperAction">
+		<xs:annotation>
+			<xs:documentation>Action on jumper as a switching step.</xs:documentation>
+		</xs:annotation>
+	</xs:complexType>
+	<xs:complexType name="LimitDependency" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#LimitDependency">
+		<xs:annotation>
+			<xs:documentation>A limit calculation model used to compute an operational limit based on external input such as temperature. These are intended to be shared among operational limits with the same calculation form that apply to a piece of equipment..</xs:documentation>
+		</xs:annotation>
+	</xs:complexType>
+	<xs:complexType name="Location" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#Location">
+		<xs:annotation>
+			<xs:documentation>The place, scene, or point of something where someone or something has been, is, and/or will be at a given moment in time. It can be defined with one or more position points (coordinates) in a given coordinate system.</xs:documentation>
+		</xs:annotation>
+	</xs:complexType>
+	<xs:complexType name="Measurement" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#Measurement">
+		<xs:annotation>
+			<xs:documentation>A Measurement represents any measured, calculated or non-measured non-calculated quantity. Any piece of equipment may contain Measurements, e.g. a substation may have temperature measurements and door open indications, a transformer may have oil temperature and tank pressure measurements, a bay may contain a number of power flow measurements and a Breaker may contain a switch status measurement. </xs:documentation>
+			<xs:documentation>The PSR - Measurement association is intended to capture this use of Measurement and is included in the naming hierarchy based on EquipmentContainer. The naming hierarchy typically has Measurements as leaves, e.g. Substation-VoltageLevel-Bay-Switch-Measurement.</xs:documentation>
+			<xs:documentation>Some Measurements represent quantities related to a particular sensor location in the network, e.g. a voltage transformer (VT) or potential transformer (PT) at a busbar or a current transformer (CT) at the bar between a breaker and an isolator. The sensing position is not captured in the PSR - Measurement association. Instead it is captured by the Measurement - Terminal association that is used to define the sensing location in the network topology. The location is defined by the connection of the Terminal to ConductingEquipment. </xs:documentation>
+			<xs:documentation>If both a Terminal and PSR are associated, and the PSR is of type ConductingEquipment, the associated Terminal should belong to that ConductingEquipment instance.</xs:documentation>
+			<xs:documentation>When the sensor location is needed both Measurement-PSR and Measurement-Terminal are used. The Measurement-Terminal association is never used alone.</xs:documentation>
+		</xs:annotation>
+	</xs:complexType>
+	<xs:complexType name="Name" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#Name">
+		<xs:annotation>
+			<xs:documentation>The Name class provides the means to define any number of human readable  names for an object. A name is &lt;b&gt;not&lt;/b&gt; to be used for defining inter-object relationships. For inter-object relationships instead use the object identification 'mRID'.</xs:documentation>
+		</xs:annotation>
+	</xs:complexType>
+	<xs:complexType name="OperatingShare" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#OperatingShare">
+		<xs:annotation>
+			<xs:documentation>Specifies the operations contract relationship between a power system resource and a contract participant.</xs:documentation>
+		</xs:annotation>
+	</xs:complexType>
+	<xs:complexType name="OperationalLimitSet" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#OperationalLimitSet">
+		<xs:annotation>
+			<xs:documentation>A set of limits associated with equipment.  Sets of limits might apply to a specific temperature, or season for example. A set of limits may contain different severities of limit levels that would apply to the same equipment. The set may contain limits of different types such as apparent power and current limits or high and low voltage limits  that are logically applied together as a set.</xs:documentation>
+		</xs:annotation>
+	</xs:complexType>
+	<xs:complexType name="OperationalRestriction" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#OperationalRestriction">
+		<xs:annotation>
+			<xs:documentation>A document that can be associated with equipment to describe any sort of restrictions compared with the original manufacturer's specification or with the usual operational practice e.g. temporary maximum loadings, maximum switching current, do not operate if bus couplers are open, etc.</xs:documentation>
+			<xs:documentation>In the UK, for example, if a breaker or switch ever mal-operates, this is reported centrally and utilities use their asset systems to identify all the installed devices of the same manufacturer's type. They then apply operational restrictions in the operational systems to warn operators of potential problems. After appropriate inspection and maintenance, the operational restrictions may be removed.</xs:documentation>
+		</xs:annotation>
+	</xs:complexType>
+	<xs:complexType name="OperationalTag" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#OperationalTag">
+		<xs:annotation>
+			<xs:documentation>Operational tag placed on a power system resource or asset in the context of switching plan execution or other work in the field.</xs:documentation>
+		</xs:annotation>
+	</xs:complexType>
+	<xs:complexType name="Outage" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#Outage">
+		<xs:annotation>
+			<xs:documentation>Document describing details of an active or planned outage in a part of the electrical network.</xs:documentation>
+			<xs:documentation>A non-planned outage may be created upon:</xs:documentation>
+			<xs:documentation>- a breaker trip,</xs:documentation>
+			<xs:documentation>- a fault indicator status change,</xs:documentation>
+			<xs:documentation>- a meter event indicating customer outage,</xs:documentation>
+			<xs:documentation>- a reception of one or more customer trouble calls, or</xs:documentation>
+			<xs:documentation>- an operator command, reflecting information obtained from the field crew.</xs:documentation>
+			<xs:documentation>Outage restoration may be performed using a switching plan which complements the outage information with detailed switching activities, including the relationship to the crew and work.</xs:documentation>
+			<xs:documentation>A planned outage may be created upon:</xs:documentation>
+			<xs:documentation>- a request for service, maintenance or construction work in the field, or</xs:documentation>
+			<xs:documentation>- an operator-defined outage for what-if/contingency network analysis.</xs:documentation>
+		</xs:annotation>
+	</xs:complexType>
+	<xs:complexType name="PSREvent" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#PSREvent">
+		<xs:annotation>
+			<xs:documentation>Event recording the change in operational status of a power system resource; may be for an event that has already occurred or for a planned activity.</xs:documentation>
+		</xs:annotation>
+	</xs:complexType>
+	<xs:complexType name="PSRType" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#PSRType">
+		<xs:annotation>
+			<xs:documentation>Classifying instances of the same class, e.g. overhead and underground ACLineSegments. This classification mechanism is intended to provide flexibility outside the scope of this document, i.e. provide customisation that is non standard.</xs:documentation>
+		</xs:annotation>
+	</xs:complexType>
+	<xs:simpleType name="PerCent" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#PerCent">
+		<xs:annotation>
+			<xs:documentation>Percentage on a defined base.   For example, specify as 100 to indicate at the defined base.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:float"/>
+	</xs:simpleType>
+	<xs:complexType name="PhaseTapChanger" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#PhaseTapChanger">
+		<xs:annotation>
+			<xs:documentation>A transformer phase shifting tap model that controls the phase angle difference across the power transformer and potentially the active power flow through the power transformer.  This phase tap model may also impact the voltage magnitude.</xs:documentation>
+		</xs:annotation>
+	</xs:complexType>
+	<xs:complexType name="PinEquipment" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#PinEquipment">
+		<xs:annotation>
+			<xs:documentation>Value associated with Equipment is used as compare.</xs:documentation>
+		</xs:annotation>
+	</xs:complexType>
+	<xs:complexType name="PowerTransformer" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#PowerTransformer">
+		<xs:annotation>
+			<xs:documentation>An electrical device consisting of  two or more coupled windings, with or without a magnetic core, for introducing mutual coupling between electric circuits. Transformers can be used to control voltage and phase shift (active power flow).</xs:documentation>
+			<xs:documentation>A power transformer may be composed of separate transformer tanks that need not be identical.</xs:documentation>
+			<xs:documentation>A power transformer can be modelled with or without tanks and is intended for use in both balanced and unbalanced representations.   A power transformer typically has two terminals, but may have one (grounding), three or more terminals.</xs:documentation>
+			<xs:documentation>The inherited association ConductingEquipment.BaseVoltage should not be used.  The association from TransformerEnd to BaseVoltage should be used instead.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="mRID" minOccurs="0" maxOccurs="1" type="xs:string" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#IdentifiedObject.mRID">
+				<xs:annotation>
+					<xs:documentation>Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.</xs:documentation>
+					<xs:documentation>For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="BaseVoltage" minOccurs="0" maxOccurs="1" type="m:BaseVoltage" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#ConductingEquipment.BaseVoltage">
+				<xs:annotation>
+					<xs:documentation>Base voltage of this conducting equipment.  Use only when there is no voltage level container used and only one base voltage applies.  For example, not used for transformers.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="GroundingAction" minOccurs="0" maxOccurs="1" type="m:GroundAction" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#ConductingEquipment.GroundingAction">
+				<xs:annotation>
+					<xs:documentation>Action involving grounding operation on this conducting equipment.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="JumpingAction" minOccurs="0" maxOccurs="1" type="m:JumperAction" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#ConductingEquipment.JumpingAction">
+				<xs:annotation>
+					<xs:documentation>Jumper action involving jumping operation on this conducting equipment.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Outage" minOccurs="0" maxOccurs="1" type="m:Outage" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#ConductingEquipment.Outage"/>
+			<xs:element name="ProtectionEquipments" minOccurs="0" maxOccurs="unbounded" type="m:ProtectionEquipment" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#ConductingEquipment.ProtectionEquipments">
+				<xs:annotation>
+					<xs:documentation>Protection equipment  used to protect specific conducting equipment.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ProtectiveActionAdjustment" minOccurs="0" maxOccurs="unbounded" type="m:ProtectiveActionAdjustment" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#ConductingEquipment.ProtectiveActionAdjustment">
+				<xs:annotation>
+					<xs:documentation>The operating condition to the Conducting Equipment is changed when protective action adjustment is activated. For ShuntCompensator or other conducting equipment that operates on discrete values (integer), the values given in float will be rounded.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SvStatus" minOccurs="0" maxOccurs="unbounded" type="m:SvStatus" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#ConductingEquipment.SvStatus">
+				<xs:annotation>
+					<xs:documentation>The status state variable associated with this conducting equipment.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Terminals" minOccurs="0" maxOccurs="unbounded" type="m:Terminal" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#ConductingEquipment.Terminals">
+				<xs:annotation>
+					<xs:documentation>Conducting equipment have terminals that may be connected to other conducting equipment terminals via connectivity nodes or topological nodes.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="aggregate" minOccurs="0" maxOccurs="1" type="xs:boolean" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#Equipment.aggregate">
+				<xs:annotation>
+					<xs:documentation>The aggregate flag provides an alternative way of representing an aggregated (equivalent) element. It is applicable in cases when the dedicated classes for equivalent equipment do not have all of the attributes necessary to represent the required level of detail.  In case the flag is set to “true” the single instance of equipment represents multiple pieces of equipment that have been modelled together as an aggregate equivalent obtained by a network reduction procedure. Examples would be power transformers or synchronous machines operating in parallel modelled as a single aggregate power transformer or aggregate synchronous machine.  </xs:documentation>
+					<xs:documentation>The attribute is not used for EquivalentBranch, EquivalentShunt and EquivalentInjection.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="aliasName" minOccurs="0" maxOccurs="1" type="xs:string" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#IdentifiedObject.aliasName">
+				<xs:annotation>
+					<xs:documentation>The aliasName is free text human readable name of the object alternative to IdentifiedObject.name. It may be non unique and may not correlate to a naming hierarchy.</xs:documentation>
+					<xs:documentation>The attribute aliasName is retained because of backwards compatibility between CIM relases. It is however recommended to replace aliasName with the Name class as aliasName is planned for retirement at a future time.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="beforeShCircuitHighestOperatingCurrent" minOccurs="0" maxOccurs="1" type="m:CurrentFlow" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#PowerTransformer.beforeShCircuitHighestOperatingCurrent">
+				<xs:annotation>
+					<xs:documentation>The highest operating current (Ib in IEC 60909-0) before short circuit (depends on network configuration and relevant reliability philosophy). It is used for calculation of the impedance correction factor KT defined in IEC 60909-0.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="beforeShCircuitHighestOperatingVoltage" minOccurs="0" maxOccurs="1" type="m:Voltage" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#PowerTransformer.beforeShCircuitHighestOperatingVoltage">
+				<xs:annotation>
+					<xs:documentation>The highest operating voltage (Ub in IEC 60909-0) before short circuit. It is used for calculation of the impedance correction factor KT defined in IEC 60909-0. This is worst case voltage on the low side winding (3.7.1 of IEC 60909:2001). Used to define operating conditions.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="beforeShortCircuitAnglePf" minOccurs="0" maxOccurs="1" type="m:AngleDegrees" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#PowerTransformer.beforeShortCircuitAnglePf">
+				<xs:annotation>
+					<xs:documentation>The angle of power factor before short circuit (phib in IEC 60909-0). It is used for calculation of the impedance correction factor KT defined in IEC 60909-0. This is the worst case power factor. Used to define operating conditions.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#IdentifiedObject.description">
+				<xs:annotation>
+					<xs:documentation>The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="highSideMinOperatingU" minOccurs="0" maxOccurs="1" type="m:Voltage" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#PowerTransformer.highSideMinOperatingU">
+				<xs:annotation>
+					<xs:documentation>The minimum operating voltage (uQmin in IEC 60909-0) at the high voltage side (Q side) of the unit transformer of the power station unit. A value well established from long-term operating experience of the system. It is used for calculation of the impedance correction factor KG defined in IEC 60909-0.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="inService" minOccurs="0" maxOccurs="1" type="xs:boolean" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#Equipment.inService">
+				<xs:annotation>
+					<xs:documentation>Specifies the availability of the equipment. True means the equipment is available for topology processing, which determines if the equipment is energized or not. False means that the equipment is treated by network applications as if it is not in the model.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="isPartOfGeneratorUnit" minOccurs="0" maxOccurs="1" type="xs:boolean" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#PowerTransformer.isPartOfGeneratorUnit">
+				<xs:annotation>
+					<xs:documentation>Indicates whether the machine is part of a power station unit. Used for short circuit data exchange according to IEC 60909.  It has an impact on how the correction factors are calculated for transformers, since the transformer is not necessarily part of a synchronous machine and generating unit. It is not always possible to derive this information from the model. This is why the attribute is necessary.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#IdentifiedObject.name">
+				<xs:annotation>
+					<xs:documentation>The name is any free human readable and possibly non unique text naming the object.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="networkAnalysisEnabled" minOccurs="0" maxOccurs="1" type="xs:boolean" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#Equipment.networkAnalysisEnabled">
+				<xs:annotation>
+					<xs:documentation>The equipment is enabled to participate in network analysis.  If unspecified, the value is assumed to be true.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="normallyInService" minOccurs="0" maxOccurs="1" type="xs:boolean" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#Equipment.normallyInService">
+				<xs:annotation>
+					<xs:documentation>Specifies the availability of the equipment under normal operating conditions. True means the equipment is available for topology processing, which determines if the equipment is energized or not. False means that the equipment is treated by network applications as if it is not in the model.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="operationalValuesConsidered" minOccurs="0" maxOccurs="1" type="xs:boolean" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#PowerTransformer.operationalValuesConsidered">
+				<xs:annotation>
+					<xs:documentation>It is used to define if the data (other attributes related to short circuit data exchange) defines long term operational conditions or not. Used for short circuit data exchange according to IEC 60909.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="vectorGroup" minOccurs="0" maxOccurs="1" type="xs:string" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#PowerTransformer.vectorGroup">
+				<xs:annotation>
+					<xs:documentation>Vector group of the transformer for protective relaying, e.g., Dyn1. For unbalanced transformers, this may not be simply determined from the constituent winding connections and phase angle displacements.</xs:documentation>
+					<xs:documentation>The vectorGroup string consists of the following components in the order listed: high voltage winding connection, mid voltage winding connection (for three winding transformers), phase displacement clock number from 0 to 11,  low voltage winding connection </xs:documentation>
+					<xs:documentation>phase displacement clock number from 0 to 11.   The winding connections are D (delta), Y (wye), YN (wye with neutral), Z (zigzag), ZN (zigzag with neutral), A (auto transformer). Upper case means the high voltage, lower case mid or low. The high voltage winding always has clock position 0 and is not included in the vector group string.  Some examples: YNy0 (two winding wye to wye with no phase displacement), YNd11 (two winding wye to delta with 330 degrees phase displacement), YNyn0d5 (three winding transformer wye with neutral high voltage, wye with neutral mid voltage and no phase displacement, delta low voltage with 150 degrees displacement).</xs:documentation>
+					<xs:documentation>Phase displacement is defined as the angular difference between the phasors representing the voltages between the neutral point (real or imaginary) and the corresponding terminals of two windings, a positive sequence voltage system being applied to the high-voltage terminals, following each other in alphabetical sequence if they are lettered, or in numerical sequence if they are numbered: the phasors are assumed to rotate in a counter-clockwise sense.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AdditionalEquipmentContainer" minOccurs="0" maxOccurs="unbounded" type="m:EquipmentContainer" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#Equipment.AdditionalEquipmentContainer">
+				<xs:annotation>
+					<xs:documentation>Additional equipment container beyond the primary equipment container.  The equipment is contained in another equipment container, but also grouped with this equipment container.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AssetDatasheet" minOccurs="0" maxOccurs="1" type="m:AssetInfo" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#PowerSystemResource.AssetDatasheet">
+				<xs:annotation>
+					<xs:documentation>Datasheet information for this power system resource.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Assets" minOccurs="0" maxOccurs="unbounded" type="m:Asset" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#PowerSystemResource.Assets">
+				<xs:annotation>
+					<xs:documentation>All assets represented by this power system resource. For example, multiple conductor assets are electrically modelled as a single AC line segment.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Clearances" minOccurs="0" maxOccurs="unbounded" type="m:ClearanceDocument" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#PowerSystemResource.Clearances">
+				<xs:annotation>
+					<xs:documentation>All clearances applicable to this power system resource.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ConfigurationEvent" minOccurs="0" maxOccurs="unbounded" type="m:ConfigurationEvent" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#PowerSystemResource.ConfigurationEvent"/>
+			<xs:element name="ContingencyEquipment" minOccurs="0" maxOccurs="unbounded" type="m:ContingencyEquipment" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#Equipment.ContingencyEquipment">
+				<xs:annotation>
+					<xs:documentation>The contingency equipments in which this equipment participates.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Controls" minOccurs="0" maxOccurs="unbounded" type="m:Control" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#PowerSystemResource.Controls">
+				<xs:annotation>
+					<xs:documentation>The controller outputs used to actually govern a regulating device, e.g. the magnetization of a synchronous machine or capacitor bank breaker actuator.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DiagramObjects" minOccurs="0" maxOccurs="unbounded" type="m:DiagramObject" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#IdentifiedObject.DiagramObjects">
+				<xs:annotation>
+					<xs:documentation>The diagram objects that are associated with the domain object.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EqiupmentLimitSeriesComponent" minOccurs="0" maxOccurs="unbounded" type="m:EquipmentLimitSeriesComponent" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#Equipment.EqiupmentLimitSeriesComponent">
+				<xs:annotation>
+					<xs:documentation>Equipment limit series calculation component to which this equipment contributes.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EquipmentContainer" minOccurs="0" maxOccurs="1" type="m:EquipmentContainer" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#Equipment.EquipmentContainer">
+				<xs:annotation>
+					<xs:documentation>Container of this equipment.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EquipmentUnavailabilitySchedule" minOccurs="0" maxOccurs="unbounded" type="m:EquipmentUnavailabilitySchedule" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#Equipment.EquipmentUnavailabilitySchedule"/>
+			<xs:element name="Faults" minOccurs="0" maxOccurs="unbounded" type="m:Fault" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#Equipment.Faults">
+				<xs:annotation>
+					<xs:documentation>All faults on this equipment.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="GenericAction" minOccurs="0" maxOccurs="unbounded" type="m:GenericAction" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#PowerSystemResource.GenericAction"/>
+			<xs:element name="InstanceSet" minOccurs="1" maxOccurs="1" type="m:InstanceSet" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#IdentifiedObject.InstanceSet">
+				<xs:annotation>
+					<xs:documentation>Dataset containing the data objects.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="LimitDependencyModel" minOccurs="0" maxOccurs="unbounded" type="m:LimitDependency" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#Equipment.LimitDependencyModel">
+				<xs:annotation>
+					<xs:documentation>Limit dependencymodels organized under this equipment as a means for organizing the model in a tree view.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Location" minOccurs="0" maxOccurs="1" type="m:Location" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#PowerSystemResource.Location">
+				<xs:annotation>
+					<xs:documentation>Location of this power system resource.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Measurements" minOccurs="0" maxOccurs="unbounded" type="m:Measurement" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#PowerSystemResource.Measurements">
+				<xs:annotation>
+					<xs:documentation>The measurements associated with this power system resource.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Names" minOccurs="0" maxOccurs="unbounded" type="m:Name" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#IdentifiedObject.Names">
+				<xs:annotation>
+					<xs:documentation>All names of this identified object.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OperatingShare" minOccurs="0" maxOccurs="unbounded" type="m:OperatingShare" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#PowerSystemResource.OperatingShare">
+				<xs:annotation>
+					<xs:documentation>The operating shares of this power system resource.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OperationalLimitSet" minOccurs="0" maxOccurs="unbounded" type="m:OperationalLimitSet" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#Equipment.OperationalLimitSet">
+				<xs:annotation>
+					<xs:documentation>The operational limit sets associated with this equipment.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OperationalRestrictions" minOccurs="0" maxOccurs="unbounded" type="m:OperationalRestriction" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#Equipment.OperationalRestrictions">
+				<xs:annotation>
+					<xs:documentation>All operational restrictions for this equipment.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OperationalTags" minOccurs="0" maxOccurs="unbounded" type="m:OperationalTag" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#PowerSystemResource.OperationalTags">
+				<xs:annotation>
+					<xs:documentation>All operational tags placed on this power system resource.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Outages" minOccurs="0" maxOccurs="unbounded" type="m:Outage" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#Equipment.Outages">
+				<xs:annotation>
+					<xs:documentation>All outages in which this equipment is involved.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PinEquipment" minOccurs="0" maxOccurs="unbounded" type="m:PinEquipment" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#Equipment.PinEquipment"/>
+			<xs:element name="PowerTransformerEnd" minOccurs="0" maxOccurs="unbounded" type="m:PowerTransformerEnd" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#PowerTransformer.PowerTransformerEnd">
+				<xs:annotation>
+					<xs:documentation>The ends of this power transformer.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PropertiesCIMDataObject" minOccurs="0" maxOccurs="1" type="m:ChangeSetMember" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#IdentifiedObject.PropertiesCIMDataObject">
+				<xs:annotation>
+					<xs:documentation>The single CIM data object in the appropriate dataset context.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ProtectiveActionEquipment" minOccurs="0" maxOccurs="unbounded" type="m:ProtectiveActionEquipment" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#Equipment.ProtectiveActionEquipment">
+				<xs:annotation>
+					<xs:documentation>Protective action is controlling equipment. This can be direct signals from the control center, or emulation of action done by protection equipment.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PSREvents" minOccurs="0" maxOccurs="unbounded" type="m:PSREvent" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#PowerSystemResource.PSREvents">
+				<xs:annotation>
+					<xs:documentation>All events associated with this power system resource.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PSRType" minOccurs="0" maxOccurs="1" type="m:PSRType" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#PowerSystemResource.PSRType">
+				<xs:annotation>
+					<xs:documentation>Custom classification for this power system resource.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ReportingGroup" minOccurs="0" maxOccurs="unbounded" type="m:ReportingGroup" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#PowerSystemResource.ReportingGroup">
+				<xs:annotation>
+					<xs:documentation>Reporting groups to which this power system resource belongs.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TargetingCIMDataObject" minOccurs="0" maxOccurs="unbounded" type="m:ChangeSetMember" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#IdentifiedObject.TargetingCIMDataObject">
+				<xs:annotation>
+					<xs:documentation>Data objects registered.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TransformerTanks" minOccurs="0" maxOccurs="unbounded" type="m:TransformerTank" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#PowerTransformer.TransformerTanks">
+				<xs:annotation>
+					<xs:documentation>All transformers that belong to this bank.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="UsagePoints" minOccurs="0" maxOccurs="unbounded" type="m:UsagePoint" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#Equipment.UsagePoints">
+				<xs:annotation>
+					<xs:documentation>All usage points connected to the electrical grid through this equipment.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="VerificationAction" minOccurs="0" maxOccurs="unbounded" type="m:VerificationAction" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#PowerSystemResource.VerificationAction"/>
+			<xs:element name="WeatherStation" minOccurs="0" maxOccurs="unbounded" type="m:WeatherStation" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#Equipment.WeatherStation"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PowerTransformerEnd" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#PowerTransformerEnd">
+		<xs:annotation>
+			<xs:documentation>A PowerTransformerEnd is associated with each Terminal of a PowerTransformer.</xs:documentation>
+			<xs:documentation>The impedance values r, r0, x, and x0 of a PowerTransformerEnd represents a star equivalent as follows.</xs:documentation>
+			<xs:documentation>1) for a two Terminal PowerTransformer the high voltage (TransformerEnd.endNumber=1) PowerTransformerEnd has non zero values on r, r0, x, and x0 while the low voltage (TransformerEnd.endNumber=2) PowerTransformerEnd has zero values for r, r0, x, and x0.  Parameters are always provided, even if the PowerTransformerEnds have the same rated voltage.  In this case, the parameters are provided at the PowerTransformerEnd which has TransformerEnd.endNumber equal to 1.</xs:documentation>
+			<xs:documentation>2) for a three Terminal PowerTransformer the three PowerTransformerEnds represent a star equivalent with each leg in the star represented by r, r0, x, and x0 values.</xs:documentation>
+			<xs:documentation>3) For a three Terminal transformer each PowerTransformerEnd shall have g, g0, b and b0 values corresponding to the no load losses distributed on the three PowerTransformerEnds. The total no load loss shunt impedances may also be placed at one of the PowerTransformerEnds, preferably the end numbered 1, having the shunt values on end 1.  This is the preferred way.</xs:documentation>
+			<xs:documentation>4) for a PowerTransformer with more than three Terminals the PowerTransformerEnd impedance values cannot be used. Instead use the TransformerMeshImpedance or split the transformer into multiple PowerTransformers.</xs:documentation>
+			<xs:documentation>Each PowerTransformerEnd must be contained by a PowerTransformer. Because a PowerTransformerEnd (or any other object) can not be contained by more than one parent, a PowerTransformerEnd can not have an association to an EquipmentContainer (Substation, VoltageLevel, etc).</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="mRID" minOccurs="0" maxOccurs="1" type="xs:string" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#IdentifiedObject.mRID">
+				<xs:annotation>
+					<xs:documentation>Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.</xs:documentation>
+					<xs:documentation>For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="bmagSat" minOccurs="0" maxOccurs="1" type="m:PerCent" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#TransformerEnd.bmagSat">
+				<xs:annotation>
+					<xs:documentation>Core shunt magnetizing susceptance in the saturation region.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="endNumber" minOccurs="0" maxOccurs="1" type="xs:integer" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#TransformerEnd.endNumber">
+				<xs:annotation>
+					<xs:documentation>Number for this transformer end, corresponding to the end's order in the power transformer vector group or phase angle clock number.  Highest voltage winding should be 1.  Each end within a power transformer should have a unique subsequent end number.   Note the transformer end number need not match the terminal sequence number.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="grounded" minOccurs="0" maxOccurs="1" type="xs:boolean" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#TransformerEnd.grounded">
+				<xs:annotation>
+					<xs:documentation>(for Yn and Zn connections) True if the neutral is solidly grounded.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="magBaseU" minOccurs="0" maxOccurs="1" type="m:Voltage" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#TransformerEnd.magBaseU">
+				<xs:annotation>
+					<xs:documentation>The reference voltage at which the magnetizing saturation measurements were made.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="magSatFlux" minOccurs="0" maxOccurs="1" type="m:PerCent" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#TransformerEnd.magSatFlux">
+				<xs:annotation>
+					<xs:documentation>Core magnetizing saturation curve knee flux level.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="rground" minOccurs="0" maxOccurs="1" type="m:Resistance" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#TransformerEnd.rground">
+				<xs:annotation>
+					<xs:documentation>(for Yn and Zn connections) Resistance part of neutral impedance where 'grounded' is true.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="xground" minOccurs="0" maxOccurs="1" type="m:Reactance" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#TransformerEnd.xground">
+				<xs:annotation>
+					<xs:documentation>(for Yn and Zn connections) Reactive part of neutral impedance where 'grounded' is true.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="BaseVoltage" minOccurs="0" maxOccurs="1" type="m:BaseVoltage" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#TransformerEnd.BaseVoltage">
+				<xs:annotation>
+					<xs:documentation>Base voltage of the transformer end.  This is essential for PU calculation.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CoreAdmittance" minOccurs="0" maxOccurs="1" type="m:TransformerCoreAdmittance" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#TransformerEnd.CoreAdmittance">
+				<xs:annotation>
+					<xs:documentation>Core admittance of this transformer end, representing magnetising current and core losses. The full values of the transformer should be supplied for one transformer end only.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FromMeshImpedance" minOccurs="0" maxOccurs="unbounded" type="m:TransformerMeshImpedance" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#TransformerEnd.FromMeshImpedance">
+				<xs:annotation>
+					<xs:documentation>All mesh impedances between this 'to' and other 'from' transformer ends.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FromWindingInsulations" minOccurs="0" maxOccurs="unbounded" type="m:WindingInsulation" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#TransformerEnd.FromWindingInsulations"/>
+			<xs:element name="PhaseTapChanger" minOccurs="0" maxOccurs="1" type="m:PhaseTapChanger" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#TransformerEnd.PhaseTapChanger">
+				<xs:annotation>
+					<xs:documentation>Phase tap changer associated with this transformer end.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RatioTapChanger" minOccurs="0" maxOccurs="1" type="m:RatioTapChanger" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#TransformerEnd.RatioTapChanger">
+				<xs:annotation>
+					<xs:documentation>Ratio tap changer associated with this transformer end.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="StarImpedance" minOccurs="0" maxOccurs="1" type="m:TransformerStarImpedance" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#TransformerEnd.StarImpedance">
+				<xs:annotation>
+					<xs:documentation>(accurate for 2- or 3-winding transformers only) Pi-model impedances of this transformer end. By convention, for a two winding transformer, the full values of the transformer should be entered on the high voltage end (endNumber=1).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Terminal" minOccurs="0" maxOccurs="1" type="m:Terminal" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#TransformerEnd.Terminal">
+				<xs:annotation>
+					<xs:documentation>Terminal of the power transformer to which this transformer end belongs.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ToMeshImpedance" minOccurs="0" maxOccurs="unbounded" type="m:TransformerMeshImpedance" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#TransformerEnd.ToMeshImpedance">
+				<xs:annotation>
+					<xs:documentation>All mesh impedances between this 'from' and other 'to' transformer ends.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ToWindingInsulations" minOccurs="0" maxOccurs="unbounded" type="m:WindingInsulation" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#TransformerEnd.ToWindingInsulations"/>
+			<xs:element name="aliasName" minOccurs="0" maxOccurs="1" type="xs:string" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#IdentifiedObject.aliasName">
+				<xs:annotation>
+					<xs:documentation>The aliasName is free text human readable name of the object alternative to IdentifiedObject.name. It may be non unique and may not correlate to a naming hierarchy.</xs:documentation>
+					<xs:documentation>The attribute aliasName is retained because of backwards compatibility between CIM relases. It is however recommended to replace aliasName with the Name class as aliasName is planned for retirement at a future time.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="b" minOccurs="0" maxOccurs="1" type="m:Susceptance" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#PowerTransformerEnd.b">
+				<xs:annotation>
+					<xs:documentation>Magnetizing branch susceptance (B mag).  The value can be positive or negative.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="b0" minOccurs="0" maxOccurs="1" type="m:Susceptance" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#PowerTransformerEnd.b0">
+				<xs:annotation>
+					<xs:documentation>Zero sequence magnetizing branch susceptance.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="connectionKind" minOccurs="0" maxOccurs="1" type="m:WindingConnection" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#PowerTransformerEnd.connectionKind">
+				<xs:annotation>
+					<xs:documentation>Kind of connection.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#IdentifiedObject.description">
+				<xs:annotation>
+					<xs:documentation>The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="g" minOccurs="0" maxOccurs="1" type="m:Conductance" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#PowerTransformerEnd.g">
+				<xs:annotation>
+					<xs:documentation>Magnetizing branch conductance.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="g0" minOccurs="0" maxOccurs="1" type="m:Conductance" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#PowerTransformerEnd.g0">
+				<xs:annotation>
+					<xs:documentation>Zero sequence magnetizing branch conductance (star-model).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#IdentifiedObject.name">
+				<xs:annotation>
+					<xs:documentation>The name is any free human readable and possibly non unique text naming the object.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="phaseAngleClock" minOccurs="0" maxOccurs="1" type="xs:integer" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#PowerTransformerEnd.phaseAngleClock">
+				<xs:annotation>
+					<xs:documentation>Terminal voltage phase angle displacement where 360 degrees are represented with clock hours. The valid values are 0 to 11. For example, for the secondary side end of a transformer with vector group code of 'Dyn11', specify the connection kind as wye with neutral and specify the phase angle of the clock as 11.  The clock value of the transformer end number specified as 1, is assumed to be zero.  Note the transformer end number is not assumed to be the same as the terminal sequence number.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="r" minOccurs="0" maxOccurs="1" type="m:Resistance" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#PowerTransformerEnd.r">
+				<xs:annotation>
+					<xs:documentation>Resistance (star-model) of the transformer end.</xs:documentation>
+					<xs:documentation>The attribute shall be equal to or greater than zero for non-equivalent transformers.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="r0" minOccurs="0" maxOccurs="1" type="m:Resistance" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#PowerTransformerEnd.r0">
+				<xs:annotation>
+					<xs:documentation>Zero sequence series resistance (star-model) of the transformer end.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ratedS" minOccurs="0" maxOccurs="1" type="m:ApparentPower" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#PowerTransformerEnd.ratedS">
+				<xs:annotation>
+					<xs:documentation>Normal apparent power rating.</xs:documentation>
+					<xs:documentation>The attribute shall be a positive value. For a two-winding transformer the values for the high and low voltage sides shall be identical.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ratedU" minOccurs="0" maxOccurs="1" type="m:Voltage" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#PowerTransformerEnd.ratedU">
+				<xs:annotation>
+					<xs:documentation>Rated voltage: phase-phase for three-phase windings, and either phase-phase or phase-neutral for single-phase windings.</xs:documentation>
+					<xs:documentation>A high voltage side, as given by TransformerEnd.endNumber, shall have a ratedU that is greater than or equal to ratedU for the lower voltage sides.</xs:documentation>
+					<xs:documentation>The attribute shall be a positive value.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="x" minOccurs="0" maxOccurs="1" type="m:Reactance" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#PowerTransformerEnd.x">
+				<xs:annotation>
+					<xs:documentation>Positive sequence series reactance (star-model) of the transformer end.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="x0" minOccurs="0" maxOccurs="1" type="m:Reactance" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#PowerTransformerEnd.x0">
+				<xs:annotation>
+					<xs:documentation>Zero sequence series reactance of the transformer end.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DiagramObjects" minOccurs="0" maxOccurs="unbounded" type="m:DiagramObject" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#IdentifiedObject.DiagramObjects">
+				<xs:annotation>
+					<xs:documentation>The diagram objects that are associated with the domain object.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="InstanceSet" minOccurs="1" maxOccurs="1" type="m:InstanceSet" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#IdentifiedObject.InstanceSet">
+				<xs:annotation>
+					<xs:documentation>Dataset containing the data objects.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Names" minOccurs="0" maxOccurs="unbounded" type="m:Name" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#IdentifiedObject.Names">
+				<xs:annotation>
+					<xs:documentation>All names of this identified object.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PowerTransformer" minOccurs="0" maxOccurs="1" type="m:PowerTransformer" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#PowerTransformerEnd.PowerTransformer">
+				<xs:annotation>
+					<xs:documentation>The power transformer of this power transformer end.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PropertiesCIMDataObject" minOccurs="0" maxOccurs="1" type="m:ChangeSetMember" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#IdentifiedObject.PropertiesCIMDataObject">
+				<xs:annotation>
+					<xs:documentation>The single CIM data object in the appropriate dataset context.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TargetingCIMDataObject" minOccurs="0" maxOccurs="unbounded" type="m:ChangeSetMember" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#IdentifiedObject.TargetingCIMDataObject">
+				<xs:annotation>
+					<xs:documentation>Data objects registered.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ProtectionEquipment" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#ProtectionEquipment">
+		<xs:annotation>
+			<xs:documentation>An electrical device designed to respond to input conditions in a prescribed manner and after specified conditions are met to cause contact operation or similar abrupt change in associated electric control circuits, or simply to display the detected condition. Protection equipment is associated with conducting equipment and usually operate circuit breakers.</xs:documentation>
+		</xs:annotation>
+	</xs:complexType>
+	<xs:complexType name="ProtectiveActionAdjustment" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#ProtectiveActionAdjustment">
+		<xs:annotation>
+			<xs:documentation>Protective actions on non-switching equipment. The operating condition is adjusted.</xs:documentation>
+		</xs:annotation>
+	</xs:complexType>
+	<xs:complexType name="ProtectiveActionEquipment" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#ProtectiveActionEquipment">
+		<xs:annotation>
+			<xs:documentation>Protective action to put an Equipment in-service/out-of-service.</xs:documentation>
+		</xs:annotation>
+	</xs:complexType>
+	<xs:complexType name="RatioTapChanger" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#RatioTapChanger">
+		<xs:annotation>
+			<xs:documentation>A tap changer that changes the voltage ratio impacting the voltage magnitude but not the phase angle across the transformer.</xs:documentation>
+			<xs:documentation>Angle sign convention (general): Positive value indicates a positive phase shift from the winding where the tap is located to the other winding (for a two-winding transformer).</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="mRID" minOccurs="0" maxOccurs="1" type="xs:string" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#IdentifiedObject.mRID">
+				<xs:annotation>
+					<xs:documentation>Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.</xs:documentation>
+					<xs:documentation>For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="aliasName" minOccurs="0" maxOccurs="1" type="xs:string" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#IdentifiedObject.aliasName">
+				<xs:annotation>
+					<xs:documentation>The aliasName is free text human readable name of the object alternative to IdentifiedObject.name. It may be non unique and may not correlate to a naming hierarchy.</xs:documentation>
+					<xs:documentation>The attribute aliasName is retained because of backwards compatibility between CIM relases. It is however recommended to replace aliasName with the Name class as aliasName is planned for retirement at a future time.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="controlEnabled" minOccurs="0" maxOccurs="1" type="xs:boolean" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#TapChanger.controlEnabled">
+				<xs:annotation>
+					<xs:documentation>Specifies the regulation status of the equipment.  True is regulating, false is not regulating.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#IdentifiedObject.description">
+				<xs:annotation>
+					<xs:documentation>The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="highStep" minOccurs="0" maxOccurs="1" type="xs:integer" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#TapChanger.highStep">
+				<xs:annotation>
+					<xs:documentation>Highest possible tap step position, advance from neutral.</xs:documentation>
+					<xs:documentation>The attribute shall be greater than lowStep.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="initialDelay" minOccurs="0" maxOccurs="1" type="m:Seconds" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#TapChanger.initialDelay">
+				<xs:annotation>
+					<xs:documentation>For an LTC, the delay for initial tap changer operation (first step change).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="lowStep" minOccurs="0" maxOccurs="1" type="xs:integer" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#TapChanger.lowStep">
+				<xs:annotation>
+					<xs:documentation>Lowest possible tap step position, retard from neutral.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ltcFlag" minOccurs="0" maxOccurs="1" type="xs:boolean" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#TapChanger.ltcFlag">
+				<xs:annotation>
+					<xs:documentation>Specifies whether or not a TapChanger has load tap changing capabilities.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#IdentifiedObject.name">
+				<xs:annotation>
+					<xs:documentation>The name is any free human readable and possibly non unique text naming the object.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="neutralStep" minOccurs="0" maxOccurs="1" type="xs:integer" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#TapChanger.neutralStep">
+				<xs:annotation>
+					<xs:documentation>The neutral tap step position for this winding.</xs:documentation>
+					<xs:documentation>The attribute shall be equal to or greater than lowStep and equal or less than highStep.</xs:documentation>
+					<xs:documentation>It is the step position where the voltage is neutralU when the other terminals of the transformer are at the ratedU.  If there are other tap changers on the transformer those taps are kept constant at their neutralStep.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="neutralU" minOccurs="0" maxOccurs="1" type="m:Voltage" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#TapChanger.neutralU">
+				<xs:annotation>
+					<xs:documentation>Voltage at which the winding operates at the neutral tap setting. It is the voltage at the terminal of the PowerTransformerEnd associated with the tap changer when all tap changers on the transformer are at their neutralStep position.  Normally neutralU of the tap changer is the same as ratedU of the PowerTransformerEnd, but it can differ in special cases such as when the tapping mechanism is separate from the winding more common on lower voltage transformers.</xs:documentation>
+					<xs:documentation>This attribute is not relevant for PhaseTapChangerAsymmetrical, PhaseTapChangerSymmetrical and PhaseTapChangerLinear.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="normalStep" minOccurs="0" maxOccurs="1" type="xs:integer" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#TapChanger.normalStep">
+				<xs:annotation>
+					<xs:documentation>The tap step position used in "normal" network operation for this winding. For a "Fixed" tap changer indicates the current physical tap setting.</xs:documentation>
+					<xs:documentation>The attribute shall be equal to or greater than lowStep and equal to or less than highStep.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="step" minOccurs="0" maxOccurs="1" type="xs:float" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#TapChanger.step">
+				<xs:annotation>
+					<xs:documentation>Tap changer position.</xs:documentation>
+					<xs:documentation>Starting step for a steady state solution. Non integer values are allowed to support continuous tap variables. The reasons for continuous value are to support study cases where no discrete tap changer has yet been designed, a solution where a narrow voltage band forces the tap step to oscillate or to accommodate for a continuous solution as input.</xs:documentation>
+					<xs:documentation>The attribute shall be equal to or greater than lowStep and equal to or less than highStep.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="stepVoltageIncrement" minOccurs="0" maxOccurs="1" type="m:PerCent" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#RatioTapChanger.stepVoltageIncrement">
+				<xs:annotation>
+					<xs:documentation>Tap step increment, in per cent of rated voltage of the power transformer end, per step position.</xs:documentation>
+					<xs:documentation>When the increment is negative, the voltage decreases when the tap step increases.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="subsequentDelay" minOccurs="0" maxOccurs="1" type="m:Seconds" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#TapChanger.subsequentDelay">
+				<xs:annotation>
+					<xs:documentation>For an LTC, the delay for subsequent tap changer operation (second and later step changes).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="tculControlMode" minOccurs="0" maxOccurs="1" type="m:TransformerControlMode" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#RatioTapChanger.tculControlMode">
+				<xs:annotation>
+					<xs:documentation>Specifies the regulation control mode (voltage or reactive) of the RatioTapChanger.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AssetDatasheet" minOccurs="0" maxOccurs="1" type="m:AssetInfo" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#PowerSystemResource.AssetDatasheet">
+				<xs:annotation>
+					<xs:documentation>Datasheet information for this power system resource.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Assets" minOccurs="0" maxOccurs="unbounded" type="m:Asset" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#PowerSystemResource.Assets">
+				<xs:annotation>
+					<xs:documentation>All assets represented by this power system resource. For example, multiple conductor assets are electrically modelled as a single AC line segment.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Clearances" minOccurs="0" maxOccurs="unbounded" type="m:ClearanceDocument" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#PowerSystemResource.Clearances">
+				<xs:annotation>
+					<xs:documentation>All clearances applicable to this power system resource.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ConfigurationEvent" minOccurs="0" maxOccurs="unbounded" type="m:ConfigurationEvent" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#PowerSystemResource.ConfigurationEvent"/>
+			<xs:element name="Controls" minOccurs="0" maxOccurs="unbounded" type="m:Control" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#PowerSystemResource.Controls">
+				<xs:annotation>
+					<xs:documentation>The controller outputs used to actually govern a regulating device, e.g. the magnetization of a synchronous machine or capacitor bank breaker actuator.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DiagramObjects" minOccurs="0" maxOccurs="unbounded" type="m:DiagramObject" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#IdentifiedObject.DiagramObjects">
+				<xs:annotation>
+					<xs:documentation>The diagram objects that are associated with the domain object.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="GenericAction" minOccurs="0" maxOccurs="unbounded" type="m:GenericAction" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#PowerSystemResource.GenericAction"/>
+			<xs:element name="InstanceSet" minOccurs="1" maxOccurs="1" type="m:InstanceSet" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#IdentifiedObject.InstanceSet">
+				<xs:annotation>
+					<xs:documentation>Dataset containing the data objects.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Location" minOccurs="0" maxOccurs="1" type="m:Location" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#PowerSystemResource.Location">
+				<xs:annotation>
+					<xs:documentation>Location of this power system resource.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Measurements" minOccurs="0" maxOccurs="unbounded" type="m:Measurement" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#PowerSystemResource.Measurements">
+				<xs:annotation>
+					<xs:documentation>The measurements associated with this power system resource.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Names" minOccurs="0" maxOccurs="unbounded" type="m:Name" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#IdentifiedObject.Names">
+				<xs:annotation>
+					<xs:documentation>All names of this identified object.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OperatingShare" minOccurs="0" maxOccurs="unbounded" type="m:OperatingShare" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#PowerSystemResource.OperatingShare">
+				<xs:annotation>
+					<xs:documentation>The operating shares of this power system resource.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OperationalTags" minOccurs="0" maxOccurs="unbounded" type="m:OperationalTag" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#PowerSystemResource.OperationalTags">
+				<xs:annotation>
+					<xs:documentation>All operational tags placed on this power system resource.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PropertiesCIMDataObject" minOccurs="0" maxOccurs="1" type="m:ChangeSetMember" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#IdentifiedObject.PropertiesCIMDataObject">
+				<xs:annotation>
+					<xs:documentation>The single CIM data object in the appropriate dataset context.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PSREvents" minOccurs="0" maxOccurs="unbounded" type="m:PSREvent" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#PowerSystemResource.PSREvents">
+				<xs:annotation>
+					<xs:documentation>All events associated with this power system resource.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PSRType" minOccurs="0" maxOccurs="1" type="m:PSRType" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#PowerSystemResource.PSRType">
+				<xs:annotation>
+					<xs:documentation>Custom classification for this power system resource.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RatioTapChangerTable" minOccurs="0" maxOccurs="1" type="m:RatioTapChangerTable" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#RatioTapChanger.RatioTapChangerTable">
+				<xs:annotation>
+					<xs:documentation>The tap ratio table for this ratio  tap changer.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ReportingGroup" minOccurs="0" maxOccurs="unbounded" type="m:ReportingGroup" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#PowerSystemResource.ReportingGroup">
+				<xs:annotation>
+					<xs:documentation>Reporting groups to which this power system resource belongs.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SvTapStep" minOccurs="0" maxOccurs="1" type="m:SvTapStep" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#TapChanger.SvTapStep">
+				<xs:annotation>
+					<xs:documentation>The tap step state associated with the tap changer.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TapChangerControl" minOccurs="0" maxOccurs="1" type="m:TapChangerControl" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#TapChanger.TapChangerControl">
+				<xs:annotation>
+					<xs:documentation>The regulating control scheme in which this tap changer participates.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TapSchedules" minOccurs="0" maxOccurs="unbounded" type="m:TapSchedule" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#TapChanger.TapSchedules">
+				<xs:annotation>
+					<xs:documentation>A TapChanger can have TapSchedules.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TargetingCIMDataObject" minOccurs="0" maxOccurs="unbounded" type="m:ChangeSetMember" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#IdentifiedObject.TargetingCIMDataObject">
+				<xs:annotation>
+					<xs:documentation>Data objects registered.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TransformerEnd" minOccurs="1" maxOccurs="1" type="m:TransformerEnd" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#RatioTapChanger.TransformerEnd">
+				<xs:annotation>
+					<xs:documentation>Transformer end to which this ratio tap changer belongs.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="VerificationAction" minOccurs="0" maxOccurs="unbounded" type="m:VerificationAction" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#PowerSystemResource.VerificationAction"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RatioTapChangerTable" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#RatioTapChangerTable">
+		<xs:annotation>
+			<xs:documentation>Describes a curve for how the voltage magnitude and impedance varies with the tap step.</xs:documentation>
+		</xs:annotation>
+	</xs:complexType>
+	<xs:simpleType name="Reactance" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#Reactance">
+		<xs:annotation>
+			<xs:documentation>Reactance (imaginary part of impedance), at rated frequency.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:float"/>
+	</xs:simpleType>
+	<xs:complexType name="ReportingGroup" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#ReportingGroup">
+		<xs:annotation>
+			<xs:documentation>A reporting group is used for various ad-hoc groupings used for reporting.</xs:documentation>
+		</xs:annotation>
+	</xs:complexType>
+	<xs:simpleType name="Resistance" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#Resistance">
+		<xs:annotation>
+			<xs:documentation>Resistance (real part of impedance).</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:float"/>
+	</xs:simpleType>
+	<xs:simpleType name="Seconds" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#Seconds">
+		<xs:annotation>
+			<xs:documentation>Time, in seconds.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:float"/>
+	</xs:simpleType>
+	<xs:simpleType name="Susceptance" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#Susceptance">
+		<xs:annotation>
+			<xs:documentation>Imaginary part of admittance.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:float"/>
+	</xs:simpleType>
+	<xs:complexType name="SvStatus" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#SvStatus">
+		<xs:annotation>
+			<xs:documentation>State variable for status.</xs:documentation>
+		</xs:annotation>
+	</xs:complexType>
+	<xs:complexType name="SvTapStep" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#SvTapStep">
+		<xs:annotation>
+			<xs:documentation>State variable for transformer tap step.</xs:documentation>
+		</xs:annotation>
+	</xs:complexType>
+	<xs:complexType name="TapChangerControl" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#TapChangerControl">
+		<xs:annotation>
+			<xs:documentation>Describes behaviour specific to tap changers, e.g. how the voltage at the end of a line varies with the load level and compensation of the voltage drop by tap adjustment.</xs:documentation>
+		</xs:annotation>
+	</xs:complexType>
+	<xs:complexType name="TapSchedule" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#TapSchedule">
+		<xs:annotation>
+			<xs:documentation>A pre-established pattern over time for a tap step.</xs:documentation>
+		</xs:annotation>
+	</xs:complexType>
+	<xs:complexType name="Terminal" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#Terminal">
+		<xs:annotation>
+			<xs:documentation>An AC electrical connection point to a piece of conducting equipment. Terminals are connected at physical connection points called connectivity nodes.</xs:documentation>
+		</xs:annotation>
+	</xs:complexType>
+	<xs:simpleType name="TransformerControlMode" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#TransformerControlMode">
+		<xs:annotation>
+			<xs:documentation>Control modes for a transformer.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:complexType name="TransformerCoreAdmittance" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#TransformerCoreAdmittance">
+		<xs:annotation>
+			<xs:documentation>The transformer core admittance.  Used to specify the core admittance of a transformer in a manner that can be shared among power transformers.</xs:documentation>
+		</xs:annotation>
+	</xs:complexType>
+	<xs:complexType name="TransformerEnd" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#TransformerEnd">
+		<xs:annotation>
+			<xs:documentation>A conducting connection point of a power transformer. It corresponds to a physical transformer winding terminal.  In earlier CIM versions, the TransformerWinding class served a similar purpose, but this class is more flexible because it associates to terminal but is not a specialization of ConductingEquipment.</xs:documentation>
+		</xs:annotation>
+	</xs:complexType>
+	<xs:complexType name="TransformerMeshImpedance" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#TransformerMeshImpedance">
+		<xs:annotation>
+			<xs:documentation>Transformer mesh impedance (Delta-model) between transformer ends.</xs:documentation>
+			<xs:documentation>The typical case is that this class describes the impedance between two transformer ends pair-wise, i.e. the cardinalities at both transformer end associations are 1. However, in cases where two or more transformer ends are modelled the cardinalities are larger than 1.</xs:documentation>
+		</xs:annotation>
+	</xs:complexType>
+	<xs:complexType name="TransformerStarImpedance" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#TransformerStarImpedance">
+		<xs:annotation>
+			<xs:documentation>Transformer star impedance (Pi-model) that accurately reflects impedance for transformers with 2 or 3 windings. For transformers with 4 or more windings, TransformerMeshImpedance class shall be used.</xs:documentation>
+			<xs:documentation>For transmission networks use PowerTransformerEnd impedances (r, r0, x, x0, b, b0, g and g0).</xs:documentation>
+		</xs:annotation>
+	</xs:complexType>
+	<xs:complexType name="TransformerTank" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#TransformerTank">
+		<xs:annotation>
+			<xs:documentation>An assembly of two or more coupled windings that transform electrical power between voltage levels. These windings are bound on a common core and placed in the same tank. Transformer tank can be used to model both single-phase and 3-phase transformers.</xs:documentation>
+		</xs:annotation>
+	</xs:complexType>
+	<xs:complexType name="UsagePoint" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#UsagePoint">
+		<xs:annotation>
+			<xs:documentation>Logical or physical point in the network to which readings or events may be attributed. Used at the place where a physical or virtual meter may be located; however, it is not required that a meter be present.</xs:documentation>
+		</xs:annotation>
+	</xs:complexType>
+	<xs:complexType name="VerificationAction" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#VerificationAction">
+		<xs:annotation>
+			<xs:documentation>Verification of a switch position or other condition as a switching step</xs:documentation>
+		</xs:annotation>
+	</xs:complexType>
+	<xs:simpleType name="Voltage" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#Voltage">
+		<xs:annotation>
+			<xs:documentation>Electrical voltage, can be both AC and DC.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:float"/>
+	</xs:simpleType>
+	<xs:complexType name="WeatherStation" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#WeatherStation">
+		<xs:annotation>
+			<xs:documentation>This represents a source of ambient temperature.</xs:documentation>
+		</xs:annotation>
+	</xs:complexType>
+	<xs:simpleType name="WindingConnection" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#WindingConnection">
+		<xs:annotation>
+			<xs:documentation>Winding connection type.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:complexType name="WindingInsulation" sawsdl:modelReference="http://iec.ch/TC57/CIM-generic#WindingInsulation">
+		<xs:annotation>
+			<xs:documentation>Winding insulation condition as a result of a test.</xs:documentation>
+		</xs:annotation>
+	</xs:complexType>
+</xs:schema>
